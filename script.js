@@ -35,29 +35,23 @@ const judgyQuotes = [
 ];
 
 const arsenalQuotes = [
-  "Arsenal’s trophy drought is so old it qualifies for a pension.",
-  "Every season Arsenal fans say ‘this year is different’ — yes, the collapse comes in May instead of April.",
-  "Top of the table in December, memes by May.",
-  "Arsenal only win with konas — not corners, but the South African song 🎶.",
-  "Arsenal bottling is now officially UNESCO heritage.",
-  "Arteta’s tactics are basically IKEA furniture: looks nice, collapses under pressure.",
-  "Being an Arsenal fan is cardio — the heart attacks are free.",
-  "Arsenal have the most days top of the table with no medal. Rent-free champions.",
-  "Every Arsenal documentary is just therapy for fans who survived February.",
-  "Konas FC: powered by vibes and TikTok edits."
+  "Arsenal’s trophy drought is old enough to drink at this point. 🤣🤣",
+  "Every season Arsenal fans say ‘this year is different’ — yes, the Elephant is always down by February instead. 🥱🤣",
+  "Top of the table in December, memes by Feb. 🤡",
+  "Arsenal only win with konas, kona, kona, kona, konaaa.. 🎶.",
+  "Arsenal bottling is now officially UNESCO heritage, can't be football 'heritage.. ##2nd placemans! 🥱🥱",
+  "Arteta’s tactics are basically IKEA furniture: looks nice, collapses under pressure. 🤣🤣",
+  "Being an Arsenal fan is cardio — the heart attacks are free. 🏃‍➡️ (phase 7)",
+  "Arsenal have the most days top of the table with a participation medal. Rent-free champions. 🤣🤣 how does it feel to be just good enough? 🤣🤣",
+  "Every Arsenal documentary is just therapy for fans who survived 'last season'. 🥱🤣",
+  "Konas FC: powered by vibes and TikTok edits (#Baba Ne Jealous), Maybe Jealous of Yanited!!!. 🤣🤣 Cry More",
 ];
 
 const chelseaQuotes = [
-  "Chelsea’s squad depth is so deep, even Titanic hasn’t reached it.",
-  "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins.",
-  "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January.",
-  "Chelsea have more midfielders than the Premier League has referees.",
-  "Boehly gives 15-year contracts like Oprah: YOU get one, YOU get one!",
-  "Chelsea fans measure success by net spend, not trophies.",
-  "Even Football Manager said, ‘bro, relax’.",
-  "Chelsea’s scouting report: scroll Instagram, sign whoever has abs.",
-  "Stamford Bridge is now a luxury Airbnb for underperforming stars.",
-  "At this point, Chelsea should just loan the fans to Vitesse."
+  "Chelsea’s squad depth is so deep, even Titanic hasn’t reached it. 🤣🤣",
+  "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins. ",
+  "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January. #Garna who?? ganna be on the bench. 🤣🤣",
+  "As a Man U fan: I can't banter Liverpool, won the Prem, can't banter Chelsea, won the conference and World Cup 😭, can't banter Tottenham, won Europa 😭,can't banter city (I'd be killing the egos of the last 2 fans left), BUT ARSENAL, ME & U THIS SEASON 🤝🤝"
 ];
 
 const chaosQuotes = [
