@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pointless Motivator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .animated-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .animated-background::before,
+    .animated-background::after {
+      content: '';
+      position: absolute;
+      background: rgba(126, 178, 255, 0.08);
+      border-radius: 50%;
+      animation: float 25s infinite ease-in-out;
+    }
+
+    .animated-background::before {
+      width: 140vw; height: 140vw;
+      top: -50vh; left: -50vw;
+    }
+
+    .animated-background::after {
+      width: 160vw; height: 160vw;
+      bottom: -70vh; right: -70vw;
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      0%   { transform: scale(1) translate(0,0); }
+      50%  { transform: scale(1.1) translate(8vw, 8vh); }
+      100% { transform: scale(1) translate(0,0); }
+    }
+
+    .ui-container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #E0E0E0;
+      z-index: 10;
+      width: 90%;
+      max-width: 700px;
+      padding: 3rem;
+      border-radius: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .ui-container:hover {
+      transform: translate(-50%, -50%) scale(1.02);
+      box-shadow: 0 0 40px rgba(126,178,255,0.4),
+                  0 0 80px rgba(126,178,255,0.15);
+    }
+    
+    .quote {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .mode-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .mode-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(145deg, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .mode-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .active-mode {
+      background: linear-gradient(145deg, #1f1f1f, #333);
+      transform: translateY(0) !important;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    }
+    
+    .chaos-mode {
+      animation: flash 0.5s infinite alternate;
+    }
+
+    @keyframes flash {
+      from { background-color: #000; }
+      to { background-color: #ff00ff; }
+    }
+
+    .chaos-shake {
+      animation: shake 0.2s infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100" id="body">
+
+  <!-- Animated background -->
+  <div class="animated-background"></div>
+
+  <!-- Main container -->
+  <div class="ui-container" id="quote-container">
+    <h1 class="text-3xl sm:text-4xl font-extrabold mb-4 text-white drop-shadow-lg">
+      The Pointless Motivator
+    </h1>
+    <p class="text-sm sm:text-md mb-6 text-gray-300">
+      Click anywhere to get a random dose of wisdom, judgment, or football banter.
+    </p>
+
+    <!-- Quote area -->
+    <div id="quote" class="quote text-lg sm:text-xl font-light text-gray-200">
+      Click here for some pointless wisdom.
+    </div>
+
+    <!-- Mode Buttons -->
+    <div class="mode-buttons">
+      <button id="normal-btn" class="mode-button active-mode">Normal</button>
+      <button id="judgy-btn" class="mode-button">Judgy</button>
+      <button id="banter-btn" class="mode-button">Banter</button>
+      <button id="chaos-btn" class="mode-button">Chaos</button>
+    </div>
+  </div>
+
+  <script>
+    const quoteContainer = document.getElementById('quote-container');
+    const quoteElement = document.getElementById('quote');
+    const bodyElement = document.getElementById('body');
+
+    const normalQuotes = [
+      "After creating the sun, the earth was still too hot, so God created snakes in order to make the earthworm.",
+      "Assna and Chelshit can never be what Manchester Yanited is ##GGMU.",
+      "If cows could vote, McDonald’s would be outlawed tomorrow.",
+      "Your shadow is proof you’re never truly alone. Creepy, right?",
+      "Bananas are just boomerangs that lost their way home.",
+      "The moon is basically the Earth’s selfie ring light.",
+      "Don’t trust stairs. They’re always up to something.",
+      "If you drop a soap on the floor, is the floor clean or is the soap dirty?",
+      "Pineapples are just spiky apples trying too hard.",
+      "Every time you clean your room, somewhere, dust is plotting a comeback tour.",
+      "Oceans are just giant bowls of soup we forgot to season.",
+      "Hotdogs are just sandwiches that gave up on structural integrity.",
+      "When life gives you lemons, squeeze them into someone’s Wi-Fi router and claim dominance."
+    ];
+    
+    const judgyQuotes = [
+      "You’ve opened this site three times today. Maybe try opening a book?",
+      "Your phone battery lasts longer than your last situationship.",
+      "You say you’re tired, but you’ve done nothing but scroll for 3 hours.",
+      "Confidence is key, but in your case, maybe just try the spare key.",
+      "Life is short. Not as short as your attention span, but close.",
+      "You laugh at these quotes, but your laundry is still waiting.",
+      "Stop blaming Mercury retrograde. It’s just you being unserious.",
+      "Even Google doesn’t have all the answers. What makes you think you do?",
+      "Your ‘five-year plan’ is just vibes and Wi-Fi at this point.",
+      "Hard work pays off. Unless you’re you, then it just pays in disappointment.",
+      "Your procrastination skills deserve a LinkedIn endorsement.",
+      "You don’t need motivation. You need sleep and a functioning calendar app.",
+      "Remember: even your excuses are getting bored of you."
+    ];
+
+    const banterQuotes = [
+      "Arsenal's trophy cabinet is now old enough to buy its own drinks. We respect the history, but at some point, you have to create a new one. Or, you know, just sign another player who was brilliant at Sporting CP.",
+      "Arsenal fans are the only people who celebrate an eight-point lead in March like it's a trophy. You know, they have a whole song for it on TikTok.",
+      "Pundits keep saying this Arsenal team is different. It is. They're better at losing in the last few games. That's progress.",
+      "Remember that time you guys had more days at the top of the table than anyone else and still didn't win? That's not just a statistic, it's an heirloom. Pass it down for generations.",
+      "The only thing more reliable than Arsenal bottling it is phase 7 Arteta who will still claim they are 'on the right track'.",
+      "Todd Boehly's phone auto-corrects the word 'strategy' to 'random signing'.",
+      "Pundits say Chelsea have a long-term plan. I believe it. Just look at their transfer deals—they're building a squad for a game of Football Manager 2050.",
+      "I saw a Chelsea fan on X arguing that losing a final is a 'sign of progress'. It's no longer a club, it's a self-help group.",
+      "Chelsea's transfer strategy is basically just scrolling through FIFA Career Mode and clicking 'buy all.' No tactics, just vibes.",
+      "Garnacho is exactly the kind of player Chelsea needs. They could buy him for a ridiculous fee, give him a 15-year contract, and then find a way to loan him to Vitesse by January."
+    ];
+
+    const chaosQuotes = [
+      "Wait, where are the squirrels? I need them to explain the stock market.",
+      "I just saw a dog doing algebra. Don't look at me, look at the dog.",
+      "The walls are starting to melt and I'm pretty sure a teapot just winked at me.",
+      "Why is my reflection wearing a tiny top hat and speaking in riddles?",
+      "Did you know that spoons are just tiny, concave mirrors for people who don't want to see themselves?",
+      "My pet rock just filed my taxes. The refund is due in the year 2045.",
+      "Somewhere, a parallel version of you is eating a sandwich, and that sandwich is a lie.",
+      "I've been replaced by a sentient toaster. This is my last message. Tell my family I love them. And that I have an addiction to crumpets."
+    ];
+
+    let currentMode = "normal"; 
+
+    function getRandomQuote() {
+      let pool;
+      if (currentMode === "judgy") pool = judgyQuotes;
+      else if (currentMode === "banter") pool = banterQuotes;
+      else if (currentMode === "chaos") pool = chaosQuotes;
+      else pool = normalQuotes;
+
+      const randomIndex = Math.floor(Math.random() * pool.length);
+      return pool[randomIndex];
+    }
+
+    function updateQuote() {
+      const newQuote = getRandomQuote();
+      quoteElement.classList.remove('fade-in');
+      void quoteElement.offsetWidth; // force reflow
+      quoteElement.textContent = newQuote;
+      quoteElement.classList.add('fade-in');
+    }
+
+    // Click anywhere on card = new quote
+    quoteContainer.addEventListener('click', (e) => {
+      if (!e.target.classList.contains("mode-button")) {
+        updateQuote();
+      }
+    });
+
+    // Mode buttons
+    function setMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll(".mode-button").forEach(btn => btn.classList.remove("active-mode"));
+      if (mode === "normal") document.getElementById("normal-btn").classList.add("active-mode");
+      if (mode === "judgy") document.getElementById("judgy-btn").classList.add("active-mode");
+      if (mode === "banter") document.getElementById("banter-btn").classList.add("active-mode");
+      if (mode === "chaos") {
+        document.getElementById("chaos-btn").classList.add("active-mode");
+        bodyElement.classList.add("chaos-mode");
+        quoteContainer.classList.add("chaos-shake");
+      } else {
+        bodyElement.classList.remove("chaos-mode");
+        quoteContainer.classList.remove("chaos-shake");
+      }
+      updateQuote();
+    }
+
+    document.getElementById("normal-btn").addEventListener("click", () => setMode("normal"));
+    document.getElementById("judgy-btn").addEventListener("click", () => setMode("judgy"));
+    document.getElementById("banter-btn").addEventListener("click", () => setMode("banter"));
+    document.getElementById("chaos-btn").addEventListener("click", () => setMode("chaos"));
+  </script>
+</body>
+</html>
