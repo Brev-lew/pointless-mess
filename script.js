@@ -49,6 +49,7 @@ const arsenalQuotes = [
 
 const chelseaQuotes = [
   "Chelsea’s squad depth is so deep, even Titanic hasn’t reached it. 🤣🤣",
+  "Man you can’t even banter Chelsea anymore because of that CWC😭😭 Fvck you PSG!!! 🤦🏿‍♂️",
   "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins. ",
   "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January. #Garna who?? ganna be on the bench. 🤣🤣",
   "As a Man U fan: I can't banter Liverpool, won the Prem, can't banter Chelsea, won the conference and World Cup 😭, can't banter Tottenham, won Europa 😭,can't banter city (I'd be killing the egos of the last 2 fans left), BUT ARSENAL, ME & U THIS SEASON 🤝🤝"
