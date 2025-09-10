@@ -5,7 +5,7 @@ const pointlessQuotes = [
   "After creating the sun, the earth was still too hot, so God created snakes in order to make the earthworm.",
   "If cows could vote, McDonald’s would be outlawed tomorrow.",
   "Your shadow is proof you’re never truly alone. Creepy, right?",
-  "Bananas are just boomerangs that lost their way home.",
+  "Nursing a heartbreak in an African household is literally top 4 worst experiences. My cousin is losing her mind and they’re asking her to cook chapos 😭😭😭",
   "The moon is basically the Earth’s selfie ring light.",
   "Don’t trust stairs. They’re always up to something.",
   "If you drop a soap on the floor, is the floor clean or is the soap dirty?",
@@ -17,21 +17,21 @@ const pointlessQuotes = [
 ];
 
 const judgyQuotes = [
-  "You’ve opened this site three times today. Maybe try opening a book?",
-  "Your phone battery lasts longer than your last situationship.",
-  "You say you’re tired, but you’ve done nothing but scroll for 3 hours.",
-  "Confidence is key, but in your case, maybe just try the spare key.",
-  "Life is short. Not as short as your attention span, but close.",
-  "You laugh at these quotes, but your laundry is still waiting.",
-  "Stop blaming Mercury retrograde. It’s just you being unserious.",
-  "Even Google doesn’t have all the answers. What makes you think you do?",
-  "Your ‘five-year plan’ is just vibes and Wi-Fi at this point.",
-  "Hard work pays off. Unless you’re you, then it just pays in disappointment.",
-  "Your procrastination skills deserve a LinkedIn endorsement.",
-  "You don’t need motivation. You need sleep and a functioning calendar app.",
-  "Remember: even your excuses are getting bored of you.",
-  "Your vibe says ‘main character,’ your haircut says ‘extra.’",
-  "You laugh at this, but your laundry still isn’t done."
+  { text: "You’ve opened this site three times today. Maybe try opening a book? 📖", image: "images/iza1.jpg" },
+  { text: "Your phone battery lasts longer than your last situationship. 🔋💔", image: "images/fyt1.jpg" },
+  { text: "You say you’re tired, but you’ve done nothing but scroll for 3 hours. 📱😴", image: "images/kula1.jpg" },
+  { text: "Confidence is key, but in your case, maybe just try the spare key. 🗝️", image: "images/laugh4.jpg" },
+  { text: "Life is short. Not as short as your attention span, but close. ⏳😂", image: "images/usher1.jpg" },
+  { text: "You laugh at these quotes, but your laundry is still waiting. 🧺🤡", image: "images/clown1.jpg" },
+  { text: "Stop blaming Mercury retrograde. It’s just you being unserious. 🌌🙃", image: "images/iza1.jpg" },
+  { text: "Even Google doesn’t have all the answers. What makes you think you do? 🔍🤔", image: "images/whatchu6.jpg" },
+  { text: "Your ‘five-year plan’ is just vibes and Wi-Fi at this point. 📅📶", image: "images/granny1.jpg" },
+  { text: "Hard work pays off. Unless you’re you, then it just pays in disappointment. 💼😬", image: "images/bidness1.jpg" },
+  { text: "Your procrastination skills deserve a LinkedIn endorsement. 🕒💤", image: "images/whatchu4.jpg" },
+  { text: "You don’t need motivation. You need sleep and a functioning calendar app. 🛌📲", image: "images/capone1.jpg" },
+  { text: "Remember: even your excuses are getting bored of you. 😒📚", image: "images/Yanited1.jpg" },
+  { text: "Your vibe says ‘main character,’ your haircut says ‘extra.’ ✂️😂", image: "images/rock1.jpg" },
+  { text: "You laugh at this, but your laundry still isn’t done. 🧺😑", image: "images/FU1.jpg" }
 ];
 
 // ==============================
