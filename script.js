@@ -34,25 +34,29 @@ const judgyQuotes = [
   "You laugh at this, but your laundry still isn’t done."
 ];
 
+// ==============================
+// Football Banter (Now With Images)
+// ==============================
 const arsenalQuotes = [
-  "Arsenal’s trophy drought is old enough to drink at this point. 🤣🤣",
-  "Every season Arsenal fans say ‘this year is different’ — yes, the Elephant is always down by February instead. 🥱🤣",
-  "Top of the table in December, memes by Feb. 🤡",
-  "Arsenal only win with konas, kona, kona, kona, konaaa.. 🎶.",
-  "Arsenal bottling is now officially UNESCO heritage, can't be football 'heritage.. ##2nd placemans! 🥱🥱",
-  "Arteta’s tactics are basically IKEA furniture: looks nice, collapses under pressure. 🤣🤣",
-  "Being an Arsenal fan is cardio — the heart attacks are free. 🏃‍➡️ (phase 7)",
-  "Arsenal have the most days top of the table with a participation medal. Rent-free champions. 🤣🤣 how does it feel to be just good enough? 🤣🤣",
-  "Every Arsenal documentary is just therapy for fans who survived 'last season'. 🥱🤣",
-  "Konas FC: powered by vibes and TikTok edits (#Baba Ne Jealous), Maybe Jealous of Yanited!!!. 🤣🤣 Cry More",
+  { text: "Arsenal’s trophy drought is old enough to drink at this point. 🤣🤣", image: "images/banter4.jpg" },
+  { text: "Every season Arsenal fans say ‘this year is different’ — yes, the Elephant is always down by February instead. 🥱🤣", image: "images/bruno1.jpg" },
+  { text: "Top of the table in December, memes by Feb. 🤡", image: "images/laugh2.jpg" },
+  { text: "Arsenal players: “If we don’t finish 2nd they can’t mock us for bottling the title again” 🤡", image: "images/banter1.jpg" },
+  { text: "Arsenal only win with konas, kona, kona, kona, konaaa.. 🎶.", image: "images/ass1.jpg" },
+  { text: "Arsenal bottling is now officially UNESCO heritage, can't be football 'heritage.. ##2nd placemans! 🥱🥱", image: "images/ass1.jpg" },
+  { text: "Arteta’s tactics are basically IKEA furniture: looks nice, collapses under pressure. 🤣🤣", image: "images/ABC1.jpg" },
+  { text: "Being an Arsenal fan is cardio — the heart attacks are free. 🏃‍➡️ (phase 7)", image: "images/assnaa1.jpg" },
+  { text: "Arsenal have the most days top of the table with a participation medal. Rent-free champions. 🤣🤣", image: "images/clown1.jpg" },
+  { text: "Every Arsenal documentary is just therapy for fans who survived 'last season'. 🥱🤣", image: "images/cry6.jpg" },
+  { text: "Konas FC: powered by vibes and TikTok edits (#Baba Ne Jealous), Maybe Jealous of Yanited!!!. 🤣🤣 Cry More", image: "images/cry7.jpg" },
 ];
 
 const chelseaQuotes = [
-  "Chelsea’s squad depth is so deep, even Titanic hasn’t reached it. 🤣🤣",
-  "Man you can’t even banter Chelsea anymore because of that CWC😭😭 Fvck you PSG!!! 🤦🏿‍♂️",
-  "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins. ",
-  "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January. #Garna who?? ganna be on the bench. 🤣🤣",
-  "As a Man U fan: I can't banter Liverpool, won the Prem, can't banter Chelsea, won the conference and World Cup 😭, can't banter Tottenham, won Europa 😭,can't banter city (I'd be killing the egos of the last 2 fans left), BUT ARSENAL, ME & U THIS SEASON 🤝🤝"
+  { text: "Chelsea’s squad depth is so deep, even Titanic hasn’t reached it. 🤣🤣", image: "images/chelsocks1.jpg" },
+  { text: "Man you can’t even banter Chelsea anymore because of that CWC😭😭 Fvck you PSG!!! 🤦🏿‍♂️", image: "images/banter2.jpg" },
+  { text: "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins.", image: "images/usher1.jpg" },
+  { text: "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January. #Garna who?? ganna be on the bench. 🤣🤣", image: "images/ass1.jpg" },
+  { text: "As a Man U fan: I can't banter Liverpool, won the Prem, can't banter Chelsea, won the conference and World Cup 😭, can't banter Tottenham, won Europa 😭,can't banter city (I'd be killing the egos of the last 2 fans left), BUT ARSENAL, ME & U THIS SEASON 🤝🤝", image: "images/cry2.jpg" },
 ];
 
 const chaosQuotes = [
@@ -73,8 +77,9 @@ const chaosQuotes = [
   "Bananas are just failed boomerangs.",
   "You’re not procrastinating. You’re speedrunning disappointment."
 ];
-    
-const allBanterQuotes = pointlessQuotes.concat(arsenalQuotes, chelseaQuotes);
+
+// Combine banter pool
+const allBanterQuotes = arsenalQuotes.concat(chelseaQuotes);
 
 // ==============================
 // Reward Notifications
@@ -156,11 +161,24 @@ function updateQuote() {
   const newQuote = getRandomQuote();
   quoteElement.classList.remove('fade-in');
   void quoteElement.offsetWidth; // force reflow
-  quoteElement.textContent = newQuote;
+
+  if (typeof newQuote === "object" && newQuote.text) {
+    // Quote with image
+    quoteElement.innerHTML = `
+      <div class="quote-text">${newQuote.text}</div>
+      <img src="${newQuote.image}" alt="Meme" class="meme-img">
+    `;
+  } else {
+    // Normal text-only quote
+    quoteElement.innerHTML = `<div class="quote-text">${newQuote}</div>`;
+  }
+
   quoteElement.classList.add('fade-in');
 }
 
+// ==============================
 // Main click listener
+// ==============================
 quoteContainer.addEventListener('click', (e) => {
   if (!e.target.classList.contains("mode-button")) {
     updateQuote();
@@ -187,7 +205,9 @@ quoteContainer.addEventListener('click', (e) => {
   }
 });
 
+// ==============================
 // Mode buttons
+// ==============================
 function setMode(mode) {
   currentMode = mode;
   document.querySelectorAll(".mode-button").forEach(btn => btn.classList.remove("active-mode"));
