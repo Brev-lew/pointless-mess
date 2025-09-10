@@ -2,36 +2,40 @@
 // Quote Banks
 // ==============================
 const pointlessQuotes = [
-  "After creating the sun, the earth was still too hot, so God created snakes in order to make the earthworm.",
-  "If cows could vote, McDonald’s would be outlawed tomorrow.",
-  "Your shadow is proof you’re never truly alone. Creepy, right?",
-  "Nursing a heartbreak in an African household is literally top 4 worst experiences. My cousin is losing her mind and they’re asking her to cook chapos 😭😭😭",
-  "The moon is basically the Earth’s selfie ring light.",
-  "Don’t trust stairs. They’re always up to something.",
-  "If you drop a soap on the floor, is the floor clean or is the soap dirty?",
-  "Pineapples are just spiky apples trying too hard.",
-  "Every time you clean your room, somewhere, dust is plotting a comeback tour.",
-  "Oceans are just giant bowls of soup we forgot to season.",
-  "Hotdogs are just sandwiches that gave up on structural integrity.",
-  "When life gives you lemons, squeeze them into someone’s Wi-Fi router and claim dominance."
+  { text: "After creating the sun, the earth was still too hot, so God created snakes in order to make the earthworm.", image: "pointless1.png" },
+  { text: "The early bird catches the worm, but the early fish catches the hook, anyway at the end of the day noses run and feet smell...", image: "images/jose3.jpg" },
+  { text: "Your shadow is proof you’re never truly alone. Creepy, right?", image: "images/jw1.jpg" },
+  { text: "Nursing a heartbreak in an African household is literally top 4 worst experiences. My cousin is losing her mind and they’re asking her to cook chapos 😭😭😭", image: "images/jl1.jpg" },
+  { text: "The moon is basically the Earth’s selfie ring light.", image: "images/aha1 (2).jpg" },
+  { text: "Wisdom is knowing a tomato is a fruit. True wisdom is not putting it in a fruit salad. Supreme wisdom is selling it as juice for 400 bob.", image: "images/aha1 (5).jpg" },
+  { text: "Don’t trust stairs. They’re always up to something.", image: "images/aha1 (9).jpg" },
+  { text: "If you drop a soap on the floor, is the floor clean or is the soap dirty?", image: "images/mul2.jpg" },
+  { text: "Silence is golden… until your stomach growls in a quiet meeting and exposes you.. 🤐", image: "images/aha1 (6).jpg" },
+  { text: "Every time you clean your room, somewhere, dust is plotting a comeback tour. 👏👏", image: "images/aha1 (25).jpg" },
+  { text: "Oceans are just giant bowls of soup God forgot to season.", image: "images/aha1 (21).jpg" },
+  { text: "Over-the-fire baked Corn-Starch and unborn Chicken for Dinner.😮‍💨", image: "images/piq1.jpg" },
+  { text: "When life gives you lemons, squeeze them into someone’s Wi-Fi router because that's what the Romans do. 😆😆", image: "images/vd1.jpg" }
 ];
+
 
 const judgyQuotes = [
   { text: "You’ve opened this site three times today. Maybe try opening a book? 📖", image: "images/iza1.jpg" },
-  { text: "Your phone battery lasts longer than your last situationship. 🔋💔", image: "images/fyt1.jpg" },
+  { text: "Stop romanticizing your potential. Nobody claps for ‘almost did it. ##Assnaal ⏳😂’ Hustle in silence before your silence becomes permanent.", image: "images/fyt1.jpg" },
   { text: "You say you’re tired, but you’ve done nothing but scroll for 3 hours. 📱😴", image: "images/kula1.jpg" },
   { text: "Confidence is key, but in your case, maybe just try the spare key. 🗝️", image: "images/laugh4.jpg" },
   { text: "Life is short. Not as short as your attention span, but close. ⏳😂", image: "images/usher1.jpg" },
-  { text: "You laugh at these quotes, but your laundry is still waiting. 🧺🤡", image: "images/clown1.jpg" },
-  { text: "Stop blaming Mercury retrograde. It’s just you being unserious. 🌌🙃", image: "images/iza1.jpg" },
+  { text: "You laugh at these quotes now, but deep down you know your future self is shaking their head like, ‘this clown wasted my time...🤡", image: "images/clown1.jpg" },
+  { text: "Discipline is doing what needs to be done even when you don’t feel like it. In your case, that’s literally anything other than complaining.🙃🙃", image: "images/iza1.jpg" },
   { text: "Even Google doesn’t have all the answers. What makes you think you do? 🔍🤔", image: "images/whatchu6.jpg" },
   { text: "Your ‘five-year plan’ is just vibes and Wi-Fi at this point. 📅📶", image: "images/granny1.jpg" },
   { text: "Hard work pays off. Unless you’re you, then it just pays in disappointment. 💼😬", image: "images/bidness1.jpg" },
   { text: "Your procrastination skills deserve a LinkedIn endorsement. 🕒💤", image: "images/whatchu4.jpg" },
-  { text: "You don’t need motivation. You need sleep and a functioning calendar app. 🛌📲", image: "images/capone1.jpg" },
+  { text: "Your talent isn’t wasted, your effort is missing. Potential without discipline is just a fancy way of saying professional time-waster.🛌📲", image: "images/capone1.jpg" },
   { text: "Remember: even your excuses are getting bored of you. 😒📚", image: "images/Yanited1.jpg" },
-  { text: "Your vibe says ‘main character,’ your haircut says ‘extra.’ ✂️😂", image: "images/rock1.jpg" },
+  { text: "You don’t need motivation, you need restrictions and your mom to slap the face out your phone every few minutes...😂😂 It's always that damn phone", image: "images/rock1.jpg" },
+  { text: "You don’t lack time. You lack priorities. Somehow you managed to binge 6 hours of a show, but couldn’t write one email. 👎👎😂", image: "images/rock1.jpg" },
   { text: "You laugh at this, but your laundry still isn’t done. 🧺😑", image: "images/FU1.jpg" }
+  
 ];
 
 // ==============================
@@ -44,11 +48,14 @@ const arsenalQuotes = [
   { text: "Arsenal players: “If we don’t finish 2nd they can’t mock us for bottling the title again” 🤡", image: "images/banter1.jpg" },
   { text: "Arsenal only win with konas, kona, kona, kona, konaaa.. 🎶.", image: "images/ass1.jpg" },
   { text: "Arsenal bottling is now officially UNESCO heritage, can't be football 'heritage.. ##2nd placemans! 🥱🥱", image: "images/ass1.jpg" },
-  { text: "Arteta’s tactics are basically IKEA furniture: looks nice, collapses under pressure. 🤣🤣", image: "images/ABC1.jpg" },
   { text: "Being an Arsenal fan is cardio — the heart attacks are free. 🏃‍➡️ (phase 7)", image: "images/assnaa1.jpg" },
   { text: "Arsenal have the most days top of the table with a participation medal. Rent-free champions. 🤣🤣", image: "images/clown1.jpg" },
   { text: "Every Arsenal documentary is just therapy for fans who survived 'last season'. 🥱🤣", image: "images/cry6.jpg" },
   { text: "Konas FC: powered by vibes and TikTok edits (#Baba Ne Jealous), Maybe Jealous of Yanited!!!. 🤣🤣 Cry More", image: "images/cry7.jpg" },
+  { text: "Never overestimate a player’s loyalty, if a Saudi club shows interest they’ll force a transfer...", image: "images/mig1.jpg" },
+  { text: "Heading into the beginning of the season: sign players and loan from other teams, winning the Champions League and other trophies requires high player rotation.", image: "images/jose5.jpg" },
+  { text: "Competition is key, so when you get that good player, endeavour to sign 1 or 2 more in that position so you build a proper structure for the club.", image: "images/jose3.jpg" },
+  { text: "Don’t fall in love with a loan player, but when a loan comes with talent, give them enough game time 😎🙌🏾", image: "images/klopp2.jpg" }
 ];
 
 const chelseaQuotes = [
@@ -57,6 +64,15 @@ const chelseaQuotes = [
   { text: "Todd Boehly’s strategy is just FIFA Career Mode with unlimited coins.", image: "images/usher1.jpg" },
   { text: "Chelsea transfers are like TikTok trends: viral for 2 weeks, irrelevant by January. #Garna who?? ganna be on the bench. 🤣🤣", image: "images/ass1.jpg" },
   { text: "As a Man U fan: I can't banter Liverpool, won the Prem, can't banter Chelsea, won the conference and World Cup 😭, can't banter Tottenham, won Europa 😭,can't banter city (I'd be killing the egos of the last 2 fans left), BUT ARSENAL, ME & U THIS SEASON 🤝🤝", image: "images/cry2.jpg" },
+  { text: "Always keep tabs on your players when on international duty, anything could happen..", image: "images/aha1 (6).jpg" },
+  { text: "Sign a player that was once at a Saudi club at your own risk, this can ruin your wage structure and FFP rules are very strict nowadays.", image: "images/shaq1.jpg" },
+  { text: "If a player wants to leave let them, gentleman’s agreement like Šeško — don’t pull a Palace..", image: "images/mourinho4.jpg" },
+  { text: "Never play without boots no matter how tempting or beautiful the field is..", image: "images/redcard1.jpg" },
+  { text: "If a player starts causing problems at the club, respectfully release the player. We don’t have time for violence at the club.", image: "images/toka1.jpg" },
+  { text: "Once a player starts dropping 1/10 performances and not working hard they’re forcing a move, let this player go immediately!!", image: "images/dc2.jpg" },
+  { text: "No matter how tempted you are, NEVER sign an academy player, this can lead to a serious long ban.", image: "images/aha1 (15).jpg" },
+  { text: "Always look at the career profile, never sign a player that’s had a career like João Félix or Álvaro Morata.", image: "images/jose5.jpg" },
+  { text: "If you’re selling a promising talent, make sure to include a buy back clause... (Madeira, Manchester, Madrid, Turin and Manchester again!!!)", image: "images/cr2.jpg" },
 ];
 
 const chaosQuotes = [
@@ -225,7 +241,39 @@ function setMode(mode) {
   updateQuote();
 }
 
-document.getElementById("normal-btn").addEventListener("click", () => setMode("normal"));
-document.getElementById("judgy-btn").addEventListener("click", () => setMode("judgy"));
-document.getElementById("banter-btn").addEventListener("click", () => setMode("banter"));
-document.getElementById("chaos-btn").addEventListener("click", () => setMode("chaos"));
+// ==============================
+// Active Button Highlight Function
+// ==============================
+const allButtons = document.querySelectorAll(".mode-button");
+
+function activateButton(activeBtn) {
+  allButtons.forEach(btn => {
+    if (btn) btn.classList.remove("active-mode", "chaos-active");
+  });
+  if (activeBtn) {
+    if (activeBtn.id === "chaos-btn") {
+      activeBtn.classList.add("active-mode", "chaos-active");
+    } else {
+      activeBtn.classList.add("active-mode");
+    }
+  }
+}
+
+// Hook into mode buttons
+document.getElementById("normal-btn").addEventListener("click", () => {
+  setMode("normal");
+  activateButton(document.getElementById("normal-btn"));
+});
+document.getElementById("judgy-btn").addEventListener("click", () => {
+  setMode("judgy");
+  activateButton(document.getElementById("judgy-btn"));
+});
+document.getElementById("banter-btn").addEventListener("click", () => {
+  setMode("banter");
+  activateButton(document.getElementById("banter-btn"));
+});
+document.getElementById("chaos-btn").addEventListener("click", () => {
+  setMode("chaos");
+  activateButton(document.getElementById("chaos-btn"));
+});
+

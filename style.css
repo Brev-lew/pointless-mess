@@ -1,14 +1,19 @@
-/* General Body */
+/* ==============================
+   General Body & Typography
+============================== */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #000;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   color: #E0E0E0;
+  transition: background 0.8s ease, color 0.6s ease;
+  overflow: hidden;
 }
 
-/* Animated Background */
+/* ==============================
+   Background Animation (Normal)
+============================== */
 .animated-background {
   position: fixed;
   top: 0; left: 0;
@@ -40,13 +45,14 @@ body {
   100% { transform: scale(1) translate(0,0); }
 }
 
-/* Main container (Click Box) */
+/* ==============================
+   UI Container (Click Box)
+============================== */
 .ui-container {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
   z-index: 10;
   width: 90%;
   max-width: 700px;
@@ -65,7 +71,9 @@ body {
               0 0 70px rgba(126,178,255,0.15);
 }
 
-/* Quote Area */
+/* ==============================
+   Quote Area & Animation
+============================== */
 .quote {
   min-height: 150px;
   display: flex;
@@ -86,16 +94,19 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Quote Images (for memes) */
-.quote img {
+/* Quote Images (Memes) */
+.meme-img {
   max-width: 100%;
-  max-height: 180px;
+  max-height: 200px;
   object-fit: contain;
   border-radius: 1rem;
   box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+  margin-top: 0.75rem;
 }
 
-/* Mode Buttons */
+/* ==============================
+   Mode Buttons
+============================== */
 .mode-buttons {
   margin-top: 2rem;
   display: flex;
@@ -125,34 +136,63 @@ body {
 }
 
 /* Unique Button Colors */
-#banterBtn {
-  background: linear-gradient(145deg, #ff4b5c, #d6336c);
+#normal-btn {
+  background: linear-gradient(145deg, #6a11cb, #2575fc);
 }
-#judgyBtn {
-  background: linear-gradient(145deg, #4b7bec, #3867d6);
+#judgy-btn {
+  background: linear-gradient(145deg, #ff4b2b, #ff416c);
 }
-#chaosBtn {
+#banter-btn {
+  background: linear-gradient(145deg, #00b09b, #96c93d);
+}
+#chaos-btn {
   background: linear-gradient(145deg, #20bf6b, #0fb56e);
 }
+#chaos-btn.chaos-active {
+  animation: chaosPulse 1.5s infinite alternate;
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+}
+@keyframes chaosPulse {
+  from { transform: scale(1); filter: hue-rotate(0deg); }
+  to   { transform: scale(1.05); filter: hue-rotate(45deg); }
+}
 
-/* Chaos Mode Effects */
-.chaos-mode {
-  animation: flash 0.5s infinite alternate;
+/* ==============================
+   Mode Themes (Body Backgrounds)
+============================== */
+body.normal-mode {
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
 }
-@keyframes flash {
-  from { background-color: #000; }
-  to { background-color: #ff00ff; }
+body.judgy-mode {
+  background: linear-gradient(120deg, #ff4b2b, #ff416c);
 }
+body.banter-mode {
+  background: linear-gradient(120deg, #00b09b, #96c93d);
+}
+body.chaos-mode {
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ff6f00, #00ff6f);
+  background-size: 600% 600%;
+  animation: chaosBg 8s ease infinite;
+}
+@keyframes chaosBg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Chaos Shake Effect (for container if needed) */
 .chaos-shake {
-  animation: shake 0.2s infinite;
+  animation: shake 0.3s infinite;
 }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }
 
-/* Reward Modal */
+/* ==============================
+   Reward Modal
+============================== */
 .reward-modal {
   position: fixed;
   top: 50%; left: 50%;
