@@ -295,3 +295,26 @@ document.getElementById("chaos-btn").addEventListener("click", () => {
   activateButton(document.getElementById("chaos-btn"));
 });
 
+// ==========================
+// Screenshot Capture
+// ==========================
+document.addEventListener("DOMContentLoaded", () => {
+  const screenshotBtn = document.getElementById("screenshot-btn");
+  const uiContainer = document.querySelector(".ui-container");
+
+  if (screenshotBtn && uiContainer) {
+    screenshotBtn.addEventListener("click", () => {
+      html2canvas(uiContainer, { backgroundColor: null }).then(canvas => {
+        // Convert canvas to image
+        const imgData = canvas.toDataURL("image/png");
+
+        // Create a link to download
+        const link = document.createElement("a");
+        link.href = imgData;
+        link.download = "screenshot.png";
+        link.click();
+      });
+    });
+  }
+});
+

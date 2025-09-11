@@ -259,7 +259,7 @@ body.chaos-mode .animated-background::after {
 }
 body.chaos-mode .quote .quote-text {
   transition: color 1s ease;
-  color: #fff8ff;
+  color: #af09af;
 }
 .chaos-shake {
   animation: shake 0.35s infinite;
