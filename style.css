@@ -1,18 +1,40 @@
 /* ==============================
+   Theme-driven Style (use CSS variables)
+   Full Revised style.css with theme glow refinements
+============================== */
+
+/* Root defaults (safe, neutral) */
+:root{
+  --bg-start: #000000;
+  --bg-end: #07133a;
+  --ui-bg: rgba(255,255,255,0.06);
+  --ui-border: rgba(255,255,255,0.12);
+  --float-color: rgba(126,178,255,0.06);
+  --text-color: #E0E0E0;
+  --btn-normal: linear-gradient(145deg, #6a11cb, #2575fc);
+  --btn-judgy: linear-gradient(145deg, #ff4b2b, #ff416c);
+  --btn-banter: linear-gradient(145deg, #00b09b, #96c93d);
+  --btn-chaos: linear-gradient(145deg, #8a2be2, #ff69b4);
+  --btn-active: var(--btn-normal);
+  --meme-border: rgba(255,255,255,0.06);
+  --ui-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+/* ==============================
    General Body & Typography
 ============================== */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #000;
+  background: linear-gradient(120deg, var(--bg-start), var(--bg-end));
   margin: 0;
   padding: 0;
-  color: #E0E0E0;
+  color: var(--text-color);
   transition: background 0.8s ease, color 0.6s ease;
   overflow: hidden;
 }
 
 /* ==============================
-   Background Animation (Normal)
+   Background Animation (tinted by theme)
 ============================== */
 .animated-background {
   position: fixed;
@@ -26,9 +48,11 @@ body {
 .animated-background::after {
   content: '';
   position: absolute;
-  background: rgba(126, 178, 255, 0.08);
+  background: radial-gradient(circle at center, var(--float-color), transparent 40%);
   border-radius: 50%;
   animation: float 25s infinite ease-in-out;
+  mix-blend-mode: screen;
+  opacity: 0.95;
 }
 .animated-background::before {
   width: 140vw; height: 140vw;
@@ -58,17 +82,20 @@ body {
   max-width: 700px;
   padding: 3rem;
   border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--ui-bg);
   backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease-in-out;
+  box-shadow: var(--ui-shadow);
+  border: 1px solid var(--ui-border);
+  transition: all 0.32s cubic-bezier(.2,.9,.2,1);
   cursor: pointer;
 }
 .ui-container:hover {
   transform: translate(-50%, -50%) scale(1.02);
-  box-shadow: 0 0 35px rgba(126,178,255,0.4),
-              0 0 70px rgba(126,178,255,0.15);
+  box-shadow: 0 12px 44px rgba(0,0,0,0.28), 0 0 40px rgba(0,0,0,0.12);
+}
+.ui-container h1,
+.ui-container p {
+  color: var(--text-color);
 }
 
 /* ==============================
@@ -82,26 +109,29 @@ body {
   justify-content: center;
   font-weight: 500;
   line-height: 1.5;
-  color: #fff;
+  color: var(--text-color);
   gap: 1rem;
   text-align: center;
 }
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
+.fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-/* Quote Images (Memes) */
+.quote .quote-text {
+  font-size: 1.05rem;
+  max-width: 95%;
+  word-wrap: break-word;
+  color: var(--text-color);
+}
 .meme-img {
   max-width: 100%;
   max-height: 200px;
-  object-fit: contain;
-  border-radius: 1rem;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
   margin-top: 0.75rem;
+  border: 3px solid var(--meme-border);
 }
 
 /* ==============================
@@ -122,67 +152,117 @@ body {
   border: none;
   border-radius: 0.75rem;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
   position: relative;
 }
 .mode-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.32);
 }
-.active-mode {
-  transform: translateY(0) !important;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+.mode-button.active-mode {
+  background: var(--btn-active);
+  color: #fff;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.25);
 }
-
-/* Unique Button Colors */
-#normal-btn {
-  background: linear-gradient(145deg, #6a11cb, #2575fc);
+#normal-btn { background: var(--btn-normal); }
+#judgy-btn  { background: var(--btn-judgy); }
+#banter-btn { background: var(--btn-banter); }
+#chaos-btn  { background: var(--btn-chaos); }
+.mode-button:focus { outline: 3px solid rgba(255,255,255,0.06); outline-offset: 3px; }
+/* Screenshot button style */
+#screenshot-btn {
+  background: linear-gradient(145deg, #8d5808, #832a0f);
 }
-#judgy-btn {
-  background: linear-gradient(145deg, #ff4b2b, #ff416c);
-}
-#banter-btn {
-  background: linear-gradient(145deg, #00b09b, #96c93d);
-}
-#chaos-btn {
-  background: linear-gradient(145deg, #20bf6b, #0fb56e);
-}
-#chaos-btn.chaos-active {
-  animation: chaosPulse 1.5s infinite alternate;
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
-}
-@keyframes chaosPulse {
-  from { transform: scale(1); filter: hue-rotate(0deg); }
-  to   { transform: scale(1.05); filter: hue-rotate(45deg); }
+#screenshot-btn:hover {
+  box-shadow: 0 0 20px rgba(66, 18, 3, 0.6);
 }
 
 /* ==============================
-   Mode Themes (Body Backgrounds)
+   Mode Themes
 ============================== */
+
+/* Normal theme: cool, calm */
 body.normal-mode {
-  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  --bg-start: #081027;
+  --bg-end:   #0b1b3a;
+  --ui-bg: rgba(255,255,255,0.04);
+  --ui-border: rgba(255,255,255,0.06);
+  --float-color: rgba(96, 81, 255, 0.06);
+  --text-color: #E6F0FF;
+  --btn-active: linear-gradient(145deg, #4f2ce6, #2662f0);
+  --meme-border: rgba(255,255,255,0.06);
+  --ui-shadow: 0 10px 40px rgba(8,18,48,0.6);
 }
+body.normal-mode .animated-background::before,
+body.normal-mode .animated-background::after {
+  box-shadow: 0 0 60px rgba(96, 81, 255, 0.15);
+}
+
+/* Roast / Judgy theme */
 body.judgy-mode {
-  background: linear-gradient(120deg, #ff4b2b, #ff416c);
+  --bg-start: #2b0b0b;
+  --bg-end:   #3a1216;
+  --ui-bg: rgba(20, 0, 0, 0.28);
+  --ui-border: rgba(255,120,120,0.06);
+  --float-color: rgba(255, 75, 43, 0.06);
+  --text-color: #FFEDEB;
+  --btn-active: linear-gradient(145deg, #ff4b2b, #ff416c);
+  --meme-border: rgba(255,120,120,0.08);
+  --ui-shadow: 0 8px 36px rgba(40,8,8,0.6);
 }
+body.judgy-mode .animated-background::before,
+body.judgy-mode .animated-background::after {
+  box-shadow: 0 0 60px rgba(255, 75, 43, 0.18);
+}
+
+/* Banter theme */
 body.banter-mode {
-  background: linear-gradient(120deg, #00b09b, #96c93d);
+  --bg-start: #072718;
+  --bg-end:   #063827;
+  --ui-bg: rgba(0,20,10,0.22);
+  --ui-border: rgba(180,255,200,0.06);
+  --float-color: rgba(0,176,155,0.06);
+  --text-color: #E9FFF4;
+  --btn-active: linear-gradient(145deg, #00b09b, #96c93d);
+  --meme-border: rgba(150,255,160,0.06);
+  --ui-shadow: 0 8px 36px rgba(2,30,20,0.6);
 }
+body.banter-mode .animated-background::before,
+body.banter-mode .animated-background::after {
+  box-shadow: 0 0 60px rgba(0, 176, 155, 0.15);
+}
+
+/* Chaos theme */
 body.chaos-mode {
-  background: linear-gradient(270deg, #ff00ff, #00ffff, #ff6f00, #00ff6f);
+  --bg-start: #280633;
+  --bg-end:   #001f1f;
+  --ui-bg: rgba(255,255,255,0.03);
+  --ui-border: rgba(255,255,255,0.05);
+  --float-color: rgba(99, 27, 99, 0.07);
+  --text-color: #990899;
+  --btn-active: linear-gradient(145deg, #8a2be2, #ff69b4);
+  --meme-border: rgba(255,120,255,0.07);
+  --ui-shadow: 0 10px 48px rgba(16,6,40,0.6);
+  background: linear-gradient(270deg, #21123b, #221428, #002b3b, #17001b);
   background-size: 600% 600%;
-  animation: chaosBg 8s ease infinite;
+  animation: chaosBg 10s ease infinite;
+}
+body.chaos-mode .animated-background::before,
+body.chaos-mode .animated-background::after {
+  box-shadow: 0 0 70px rgba(180, 0, 180, 0.22);
 }
 @keyframes chaosBg {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-/* Chaos Shake Effect (for container if needed) */
+body.chaos-mode .quote .quote-text {
+  transition: color 1s ease;
+  color: #fff8ff;
+}
 .chaos-shake {
-  animation: shake 0.3s infinite;
+  animation: shake 0.35s infinite;
 }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
@@ -196,20 +276,21 @@ body.chaos-mode {
 .reward-modal {
   position: fixed;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.9);
   background: #fff;
   color: #000;
-  padding: 2rem;
-  border-radius: 1.5rem;
+  padding: 1.6rem;
+  border-radius: 1.2rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  z-index: 100;
+  z-index: 200;
   text-align: center;
-  max-width: 400px;
-  animation: popIn 0.4s ease forwards;
-  font-weight: bold;
+  max-width: 420px;
+  animation: popIn 0.36s cubic-bezier(.2,.9,.2,1) forwards;
+  font-weight: 700;
 }
+.reward-modal p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
 @keyframes popIn {
-  from { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); }
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-12deg); }
   to   { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
 }
 .reward-modal button {
@@ -220,5 +301,5 @@ body.chaos-mode {
   color: #fff;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
 }

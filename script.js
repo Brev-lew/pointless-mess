@@ -226,20 +226,38 @@ quoteContainer.addEventListener('click', (e) => {
 // ==============================
 function setMode(mode) {
   currentMode = mode;
+
+  // Clear all theme classes first
+  bodyElement.classList.remove("normal-mode", "judgy-mode", "banter-mode", "chaos-mode");
+  quoteContainer.classList.remove("chaos-shake");
+
+  // Highlight active button
   document.querySelectorAll(".mode-button").forEach(btn => btn.classList.remove("active-mode"));
-  if (mode === "normal") document.getElementById("normal-btn").classList.add("active-mode");
-  if (mode === "judgy") document.getElementById("judgy-btn").classList.add("active-mode");
-  if (mode === "banter") document.getElementById("banter-btn").classList.add("active-mode");
-  if (mode === "chaos") {
-    document.getElementById("chaos-btn").classList.add("active-mode");
-    bodyElement.classList.add("chaos-mode");
-    quoteContainer.classList.add("chaos-shake");
-  } else {
-    bodyElement.classList.remove("chaos-mode");
-    quoteContainer.classList.remove("chaos-shake");
+
+  if (mode === "normal") {
+    bodyElement.classList.add("normal-mode");
+    document.getElementById("normal-btn").classList.add("active-mode");
   }
+
+  if (mode === "judgy") {
+    bodyElement.classList.add("judgy-mode");
+    document.getElementById("judgy-btn").classList.add("active-mode");
+  }
+
+  if (mode === "banter") {
+    bodyElement.classList.add("banter-mode");
+    document.getElementById("banter-btn").classList.add("active-mode");
+  }
+
+  if (mode === "chaos") {
+    bodyElement.classList.add("chaos-mode");
+    document.getElementById("chaos-btn").classList.add("active-mode");
+    quoteContainer.classList.add("chaos-shake");
+  }
+
   updateQuote();
 }
+
 
 // ==============================
 // Active Button Highlight Function
